@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class onclick_map : MonoBehaviour
 {
     public float time;
-    public GameObject backGroud_next_scenes;
     public string[] nameScenes;
     public int intScene;
     public UnityEvent EventNextScene;
