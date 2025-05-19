@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 public class reset_scene : MonoBehaviour
 {
    public string sceneName;
+    public GameObject player;
 
     public void Reset()
     {
+        if (player != null)
+        {
+            player.transform.SetParent(null);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
