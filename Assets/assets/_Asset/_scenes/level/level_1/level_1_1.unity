@@ -6425,6 +6425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  player: {fileID: 0}
 --- !u!1 &1802268803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7454,6 +7455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  player: {fileID: 0}
 --- !u!114 &1960487806
 MonoBehaviour:
   m_ObjectHideFlags: 0
