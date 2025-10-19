@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.FilePathAttribute;
 
 public class on_collder2d_1 : MonoBehaviour
 {

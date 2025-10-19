@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class speed_ : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class speed_ : MonoBehaviour
     public Animator anim;
     private Transform child;
     public bool jump;
-
+    public bool clickJump;
+    public float buttonDirection;
     void Start()
     {
         rb_strat();
@@ -20,9 +22,14 @@ public class speed_ : MonoBehaviour
     void Update()
     {
         float Horizontal = Input.GetAxis("Horizontal"); // -1 đến 1
+
+        if (Mathf.Approximately(Horizontal, 0f))
+        {
+            Horizontal = buttonDirection;
+        }
+
         Vector2 velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         rb.velocity = velocity;
-
 
         // Xoay player theo hướng di chuyển
         if (Horizontal > 0)
@@ -37,21 +44,25 @@ public class speed_ : MonoBehaviour
         // Gửi thông tin sang Animator
         anim.SetFloat("mover", Mathf.Abs(Horizontal));
 
-        if ((Input.GetKeyDown(KeyCode.Space)&& jump ==true)|| (Input.GetKeyDown(KeyCode.W)&& jump==true))
+        if ((Input.GetKeyDown(KeyCode.Space) && jump == true) || (Input.GetKeyDown(KeyCode.W) && jump == true) || (clickJump && jump))
         {
+  
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //anim.SetBool("isJumping", true);
             anim.SetTrigger("onJump");
+            delay = false;
+            clickJump = false;
         }
     }
 
+
     public void OnJump()
     {
-        jump=true;
+        jump = true;
     }
     public void OffJump()
     {
-        jump=false;
+        jump = false;
     }
     private void rb_strat()
     {
@@ -66,11 +77,33 @@ public class speed_ : MonoBehaviour
         child = transform.GetChild(0);
         rb = child.GetComponent<Rigidbody2D>();
         anim = child.GetComponent<Animator>();
+        clickJump = false;
+        buttonDirection = 0f;
 
-    }    
+    }
+    bool delay = true;
+    public void onJumpclick()
+    {
+        if (delay) { clickJump = true; }
 
+    }
+    public void offJumpclick()
+    {
+        clickJump = false;
+        delay = true;
+    }
+    public void onMoverLeft()
+    {
+        buttonDirection = -1f;
+    }
 
-
-
+    public void onMoverRight()
+    {
+        buttonDirection = 1f;
+    }
+    public void offMover()
+    {
+        buttonDirection = 0f;
+    }
 
 }

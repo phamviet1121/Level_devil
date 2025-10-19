@@ -2464,6 +2464,7 @@ GameObject:
   - component: {fileID: 553482505}
   - component: {fileID: 553482504}
   - component: {fileID: 553482503}
+  - component: {fileID: 553482506}
   m_Layer: 5
   m_Name: back_btn
   m_TagString: Untagged
@@ -2535,7 +2536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553482504}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 553482506}
+        m_TargetAssemblyTypeName: menu_scenes, Assembly-CSharp
+        m_MethodName: onclickMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553482504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2574,6 +2587,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553482501}
   m_CullTransparentMesh: 1
+--- !u!114 &553482506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553482501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d460a2e08e33ed741a44fa35b1701ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event_nextMenu:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 553482506}
+        m_TargetAssemblyTypeName: menu_scenes, Assembly-CSharp
+        m_MethodName: nextMenuScenes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1279599387}
+        m_TargetAssemblyTypeName: control_gameobject_loadScenes, Assembly-CSharp
+        m_MethodName: close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  nameScene: map_1
 --- !u!1 &577907131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +3891,7 @@ GameObject:
   - component: {fileID: 1024615046}
   - component: {fileID: 1024615045}
   - component: {fileID: 1024615044}
+  - component: {fileID: 1024615047}
   m_Layer: 5
   m_Name: Button_left
   m_TagString: Untagged
@@ -3947,6 +4001,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024615042}
   m_CullTransparentMesh: 1
+--- !u!114 &1024615047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024615042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onMoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offMover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1036731317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5495,7 @@ GameObject:
   - component: {fileID: 1397553929}
   - component: {fileID: 1397553928}
   - component: {fileID: 1397553927}
+  - component: {fileID: 1397553930}
   m_Layer: 5
   m_Name: Button_right
   m_TagString: Untagged
@@ -5505,6 +5605,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397553925}
   m_CullTransparentMesh: 1
+--- !u!114 &1397553930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397553925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onMoverRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offMover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1405072560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,6 +6583,7 @@ GameObject:
   - component: {fileID: 1802268807}
   - component: {fileID: 1802268806}
   - component: {fileID: 1802268805}
+  - component: {fileID: 1802268808}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -6547,6 +6693,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802268803}
   m_CullTransparentMesh: 1
+--- !u!114 &1802268808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802268803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onJumpclick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1925184797}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offJumpclick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1822343475
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,6 +7186,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   jump: 0
+  clickJump: 0
+  buttonDirection: 0
 --- !u!4 &1925184798
 Transform:
   m_ObjectHideFlags: 0

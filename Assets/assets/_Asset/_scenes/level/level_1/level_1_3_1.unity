@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 230800784}
   - component: {fileID: 230800783}
   - component: {fileID: 230800782}
+  - component: {fileID: 230800785}
   m_Layer: 5
   m_Name: Button_right
   m_TagString: Untagged
@@ -850,6 +851,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230800780}
   m_CullTransparentMesh: 1
+--- !u!114 &230800785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230800780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onMoverRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offMover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &234898488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  player: {fileID: 0}
 --- !u!114 &328561014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3745,6 +3792,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   jump: 0
+  clickJump: 0
+  buttonDirection: 0
 --- !u!4 &1105731733
 Transform:
   m_ObjectHideFlags: 0
@@ -4249,6 +4298,7 @@ GameObject:
   - component: {fileID: 1313881362}
   - component: {fileID: 1313881361}
   - component: {fileID: 1313881360}
+  - component: {fileID: 1313881363}
   m_Layer: 5
   m_Name: back_btn
   m_TagString: Untagged
@@ -4320,7 +4370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1313881361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1313881363}
+        m_TargetAssemblyTypeName: menu_scenes, Assembly-CSharp
+        m_MethodName: onclickMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1313881361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4359,6 +4421,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313881358}
   m_CullTransparentMesh: 1
+--- !u!114 &1313881363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313881358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d460a2e08e33ed741a44fa35b1701ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event_nextMenu:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1313881363}
+        m_TargetAssemblyTypeName: menu_scenes, Assembly-CSharp
+        m_MethodName: nextMenuScenes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 524554595}
+        m_TargetAssemblyTypeName: control_gameobject_loadScenes, Assembly-CSharp
+        m_MethodName: close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  nameScene: map_1
 --- !u!1 &1323010578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,6 +5293,7 @@ GameObject:
   - component: {fileID: 1597220701}
   - component: {fileID: 1597220700}
   - component: {fileID: 1597220699}
+  - component: {fileID: 1597220702}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5300,6 +5403,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597220697}
   m_CullTransparentMesh: 1
+--- !u!114 &1597220702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597220697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onJumpclick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offJumpclick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1608509577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6561,6 +6709,7 @@ GameObject:
   - component: {fileID: 1940090159}
   - component: {fileID: 1940090158}
   - component: {fileID: 1940090157}
+  - component: {fileID: 1940090160}
   m_Layer: 5
   m_Name: Button_left
   m_TagString: Untagged
@@ -6670,6 +6819,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940090155}
   m_CullTransparentMesh: 1
+--- !u!114 &1940090160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940090155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: onMoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105731732}
+          m_TargetAssemblyTypeName: speed_, Assembly-CSharp
+          m_MethodName: offMover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1958216648
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,6 +7590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  player: {fileID: 0}
 --- !u!114 &2115204546
 MonoBehaviour:
   m_ObjectHideFlags: 0

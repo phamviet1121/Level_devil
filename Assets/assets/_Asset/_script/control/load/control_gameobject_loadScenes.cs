@@ -15,6 +15,8 @@ public class control_gameobject_loadScenes : MonoBehaviour
     private Vector3 originalPositionBoot;
 
     public float time;
+    private Coroutine currentTopCoroutine;
+    private Coroutine currentBootCoroutine;
     void Start()
     {
         
@@ -40,15 +42,26 @@ public class control_gameobject_loadScenes : MonoBehaviour
     public void close()
     {
         gameObject.SetActive(true);
-        StartCoroutine(MoveFromTo(backGroud_next_scenes_top, location_top.transform.position, originalPositionTop, time));
-        StartCoroutine(MoveFromTo(backGroud_next_scenes_boot, location_boot.transform.position, originalPositionBoot, time));
+        StopAllCurrentAnimations();
+        // Bắt đầu coroutine mới cho close
+        currentTopCoroutine = StartCoroutine(MoveFromTo(backGroud_next_scenes_top, location_top.transform.position, originalPositionTop, time));
+        currentBootCoroutine = StartCoroutine( MoveFromTo(backGroud_next_scenes_boot, location_boot.transform.position, originalPositionBoot, time));
+        //StartCoroutine(MoveFromTo(backGroud_next_scenes_top, location_top.transform.position, originalPositionTop, time));
+        //StartCoroutine(MoveFromTo(backGroud_next_scenes_boot, location_boot.transform.position, originalPositionBoot, time));
         GameState.hasPlayedOpenAnimation = false;
     }
     public void open()
     {
         gameObject.SetActive(true);
-        StartCoroutine(MoveFromTo(backGroud_next_scenes_top, originalPositionTop, location_top.transform.position, time));
-        StartCoroutine(MoveFromTo(backGroud_next_scenes_boot, originalPositionBoot, location_boot.transform.position, time));
+
+        // Dừng tất cả coroutine cũ nếu có
+        StopAllCurrentAnimations();
+        // Bắt đầu coroutine mới cho open
+        currentTopCoroutine = StartCoroutine(MoveFromTo(backGroud_next_scenes_top, originalPositionTop, location_top.transform.position, time));
+        currentBootCoroutine = StartCoroutine(MoveFromTo(backGroud_next_scenes_boot, originalPositionBoot, location_boot.transform.position, time));
+
+        //StartCoroutine(MoveFromTo(backGroud_next_scenes_top, originalPositionTop, location_top.transform.position, time));
+        //StartCoroutine(MoveFromTo(backGroud_next_scenes_boot, originalPositionBoot, location_boot.transform.position, time));
         GameState.hasPlayedOpenAnimation = true;
     }
 
@@ -58,6 +71,22 @@ public class control_gameobject_loadScenes : MonoBehaviour
     // from :điểm bắt đầu
     // to: ddiemrr kết thúc 
     // duration: thời gian
+
+    private void StopAllCurrentAnimations()
+    {
+        if (currentTopCoroutine != null)
+        {
+            StopCoroutine(currentTopCoroutine);
+            currentTopCoroutine = null;
+        }
+
+        if (currentBootCoroutine != null)
+        {
+            StopCoroutine(currentBootCoroutine);
+            currentBootCoroutine = null;
+        }
+    }
+
     IEnumerator MoveFromTo(GameObject Obj, Vector3 from, Vector3 to, float duration)
     {
         float elapsed = 0f;
@@ -75,6 +104,11 @@ public class control_gameobject_loadScenes : MonoBehaviour
         Obj.transform.position = to;
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
+        //if (!GameState.hasPlayedOpenAnimation)
+        //{
+        //    yield return new WaitForSeconds(2f);
+        //    gameObject.SetActive(false);
+        //}
     }
 
 }
